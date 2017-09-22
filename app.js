@@ -1,6 +1,7 @@
-const http = require('koa');
+const Koa = require('koa');
+const app = new Koa();
 
-const server = http.createServer((req, res) => {
-    res.end('<h1>Hello Docker</h1>');
+app.use(ctx => {
+    ctx.body = 'Hello Koa2';
 });
-server.listen(3000);
+app.listen(3000);

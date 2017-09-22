@@ -18,6 +18,7 @@ WORKDIR /home/service/server
 # Bundle
 COPY . /home/service/server
 
+RUN yarn install
 #EXPOSE 80
 
 CMD pm2 start app.js --no-daemon
