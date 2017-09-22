@@ -1,5 +1,5 @@
 #FROM docker.io/google/nodejs
-FROM docker.io/liangshanbo/pm2:1.0.2
+FROM docker.io/liangshanbo/pm2
 ENV PORT 3000
 ENV NODE_ENV pre
 
@@ -18,7 +18,10 @@ WORKDIR /home/service/server
 # Bundle
 COPY . /home/service/server
 
-RUN yarn install
+RUN yarn add babel-cli \
+	     babel-core \
+	     babel-preset-env \
+	     koa
 #EXPOSE 80
 
 CMD pm2 start app.js --no-daemon
